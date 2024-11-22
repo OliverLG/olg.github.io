@@ -56,6 +56,25 @@
             color: white;
         }
 		
+		.about-container {
+			display: flex;                  /* Use flexbox for layout */
+			align-items: flex-start;        /* Align image and text to the top */
+			gap: 20px;                      /* Space between image and text */
+		}
+
+		.profile-image {
+			width: auto;                    /* Auto width to maintain aspect ratio */
+			height: 100%;                   /* Full height of the text container */
+			max-height: 300px;              /* Prevent image from becoming too tall */
+			object-fit: cover;              /* Ensure the image scales well */
+			float: left;                    /* Float the image to the left */
+			border-radius: 10px;            /* Optional: add rounded corners */
+		}
+
+		.about-text {
+			flex: 1;                        /* Allow the text to take up remaining space */
+		}
+
 		.contact-links {
 			display: flex;                  /* Flexbox container */
 			justify-content: space-around;  /* Space between items */
@@ -115,18 +134,23 @@
     </nav>-->
     <section id="about">
         <h2>About Me</h2>
-        <p>
-            Welcome to my digital space! I am a Scientific Employee at Technical University of Munich, 
-            specializing in Point Cloud processing, segmentation and visualization. My work focuses on bridging the gap 
-            between academic research, environmental monitoring and industrial applications. With a commitment to driving 
-            innovation, I am eager to collaborate with like-minded individuals and companies 
-            to make a meaningful impact.
-			<img src="ProfileAI.png" alt="Profile" style="height: 50px; vertical-align: middle;">
-        </p>
-		<div class="contact-links">
-			<a href="mailto: oliver.geissendoerfer@gmail.com"><img src="https://www.svgrepo.com/show/14478/email.svg" alt="Email Icon" style="width: 24px; height: 24px; vertical-align: middle;"></a>
-			<a href="https://scholar.google.com/citations?user=ViVG5yEAAAAJ&hl=de"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a>
-			<a href="https://www.linkedin.com/in/oliver-geißendörfer"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+		<div class="about-container">
+			<img src="ProfileAI.png" alt="Profile Picture" class="profile-image">
+			<div class="about-text">
+				<p>
+					Welcome to my digital space! I am a Scientific Employee at Technical University of Munich, 
+					specializing in Point Cloud processing, segmentation and visualization. My work focuses on bridging the gap 
+					between academic research, environmental monitoring and industrial applications. With a commitment to driving 
+					innovation, I am eager to collaborate with like-minded individuals and companies 
+					to make a meaningful impact.
+					<img src="ProfileAI.png" alt="Profile" style="height: 50px; vertical-align: middle;">
+				</p>
+				<div class="contact-links">
+					<a href="mailto: oliver.geissendoerfer@gmail.com"><img src="https://www.svgrepo.com/show/14478/email.svg" alt="Email Icon" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+					<a href="https://scholar.google.com/citations?user=ViVG5yEAAAAJ&hl=de"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+					<a href="https://www.linkedin.com/in/oliver-geißendörfer"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+				</div>
+			</div>
 		</div>
         <!--<p>
             Feel free to browse through my CV highlights, explore my research projects, and 
