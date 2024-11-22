@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oliver Geißendörfer - Scientist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #004466;
+            color: white;
+        }
+        header img {
+            max-width: 150px;
+            border-radius: 50%;
+        }
+        header h1 {
+            margin: 10px 0;
+            font-size: 2.5rem;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #004466;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        section h2 {
+            margin-bottom: 20px;
+            color: #004466;
+        }
+                footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #004466;
+            color: white;
+        }
+        #timeline-embed {
+            width: 100%;
+            height: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="your-image.jpg" alt="Your Name">
+        <h1>Your Name</h1>
+        <p>Engineering Researcher | Innovator | Collaborator</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Research Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Welcome to my digital space! I am a Scientific Employee at [Your University], 
+            specializing in [your area of expertise]. My work focuses on bridging the gap 
+            between academic research and industry applications. With a commitment to driving 
+            innovation, I am eager to collaborate with like-minded individuals and companies 
+            to make a meaningful impact.
+        </p>
+        <p>
+            Feel free to browse through my CV highlights, explore my research projects, and 
+            dive into my interactive publication timeline.
+        </p>
+    </section>
+    <section id="projects">
+        <h2>Research Projects</h2>
+        <p>Here are some of the exciting research projects I've worked on:</p>
+        <ul>
+            <li>Project 1: [Brief description of the project]</li>
+            <li>Project 2: [Brief description of the project]</li>
+            <li>Project 3: [Brief description of the project]</li>
+        </ul>
+    </section>
+    <section id="publications">
+        <h2>Publications</h2>
+        <div id="timeline-embed"></div>
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: oliver.geissendoerfer@gmail.com</p>
+        <p>LinkedIn: https://www.linkedin.com/in/oliver-geißendörfer</p>
+    </section>
+    <footer>
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+    <script>
+        // Example data for the timeline
+        const timelineData = {
+            title: {
+                text: {
+                    headline: "My Publications",
+                    text: "Explore the milestones of my research work."
+                }
+            },
+            events: [
+                {
+                    start_date: {
+                        year: "2020"
+                    },
+                    text: {
+                        headline: "Publication 1",
+                        text: "Details about your first publication. <a href='https://example.com'>Read more</a>."
+                    }
+                },
+                {
+                    start_date: {
+                        year: "2021"
+                    },
+                    text: {
+                        headline: "Publication 2",
+                        text: "Details about your second publication. <a href='https://example.com'>Read more</a>."
+                    }
+                },
+                {
+                    start_date: {
+                        year: "2023"
+                    },
+                    text: {
+                        headline: "Publication 3",
+                        text: "Details about your third publication. <a href='https://example.com'>Read more</a>."
+                    }
+                }
+            ]
+        };
+
+        // Initialize the TimelineJS instance
+        window.timeline = new TL.Timeline('timeline-embed', timelineData);
+    </script>
+</body>
+</html>
