@@ -64,22 +64,20 @@
 			gap: 20px;                      /* Consistent spacing between items */
 		}
 
-		.contact-item {
-			text-align: center;
-			text-decoration: none;
-			color: #004466;
-			font-size: 1rem;
-			display: flex;                  /* Ensures alignment of logo and text */
-			flex-direction: column;         /* Stacks logo above text */
-			align-items: center;            /* Centers logo and text */
+		.contact-links a {
+			text-decoration: none;          /* Remove underline from links */
+			display: inline-block;          /* Ensure consistent sizing */
 		}
 
-		.contact-logo {
+		.contact-links img {
 			width: 50px;                    /* Standard size for all logos */
 			height: 50px;
-			margin-bottom: 5px;             /* Space between logo and label */
+			transition: transform 0.2s;     /* Add a hover effect */
 		}
 
+		.contact-links img:hover {
+			transform: scale(1.1);          /* Slightly enlarge the icon on hover */
+		}
 		
 		@media (max-width: 600px) {
 			.contact-links {
