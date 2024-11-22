@@ -67,7 +67,7 @@
 			height: 100%;                   /* Full height of the text container */
 			max-height: 300px;              /* Prevent image from becoming too tall */
 			object-fit: cover;              /* Ensure the image scales well */
-			float: left;                    /* Float the image to the left */
+			float: right;                    /* Float the image to the left, right */
 			border-radius: 10px;            /* Optional: add rounded corners */
 		}
 
@@ -143,7 +143,6 @@
 					between academic research, environmental monitoring and industrial applications. With a commitment to driving 
 					innovation, I am eager to collaborate with like-minded individuals and companies 
 					to make a meaningful impact.
-					<img src="ProfileAI.png" alt="Profile" style="height: 50px; vertical-align: middle;">
 				</p>
 				<div class="contact-links">
 					<a href="mailto: oliver.geissendoerfer@gmail.com"><img src="https://www.svgrepo.com/show/14478/email.svg" alt="Email Icon" style="width: 24px; height: 24px; vertical-align: middle;"></a>
@@ -190,11 +189,12 @@
             events: [
 				{
                     start_date: {
-                        year: "2025"
+                        year: "2023",
+						month: "04"
                     },
                     text: {
-                        headline: "3D Point Cloud frequencies",
-                        text: "Details about your third publication. <a href='https://example.com'>Read more</a>."
+                        headline: "Efficient In-Memory Point Cloud Query Processing",
+                        text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
                     }
                 },
 				{
@@ -212,18 +212,15 @@
                         credit: "Oliver Geißendörfer"
                     }
                 },
-                {
+				{
                     start_date: {
-                        year: "2023",
-						month: "04"
+                        year: "2025"
                     },
                     text: {
-                        headline: "Efficient In-Memory Point Cloud Query Processing",
-                        text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
+                        headline: "3D Point Cloud frequencies",
+                        text: "Details about your third publication. <a href='https://example.com'>Read more</a>."
                     }
                 },
-                
-                
             ]
         };
 		// Sort the events by date (newest first)
@@ -234,7 +231,12 @@
 		});
 	
         // Initialize the TimelineJS instance
-        window.timeline = new TL.Timeline('timeline-embed', timelineData);
+        window.timeline = new TL.Timeline('timeline-embed', timelineData, {
+			start_at_slide: 0 // Ensure it starts at the first (newest) event
+		});
+		
+		// Adjust the height dynamically
+		const timelineEmbed = document.getElementById('timeline-embed');
 		
 		window.addEventListener('resize', () => {
             const viewportHeight = window.innerHeight;
