@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oliver Geißendörfer - personal webpage</title>
+	<link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,7 +49,7 @@
             margin-bottom: 20px;
             color: #004466;
         }
-                footer {
+        footer {
             text-align: center;
             padding: 20px;
             background-color: #004466;
@@ -70,7 +71,7 @@
     <nav>
         <a href="#about">About</a>
         <!--<a href="#projects">Research Projects</a>-->
-        <a href="#publications">Publications</a>
+        <a href="#publications">My Publications</a>
         <a href="#contact">Contact</a>
     </nav>
     <section id="about">
@@ -82,10 +83,10 @@
             innovation, I am eager to collaborate with like-minded individuals and companies 
             to make a meaningful impact.
         </p>
-        <p>
+        <!--<p>
             Feel free to browse through my CV highlights, explore my research projects, and 
             dive into my interactive publication timeline.
-        </p>
+        </p>-->
     </section>
 	<!--
     <section id="projects">
@@ -105,6 +106,7 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <p><a href="oliver.geissendoerfer@gmail.com">Email</a></p>
+		<p><a href="https://scholar.google.com/citations?user=ViVG5yEAAAAJ&hl=de">Google Scholar</a></p>
         <p><a href="https://www.linkedin.com/in/oliver-geißendörfer">LinkedIn</a></p>
     </section>
     <footer>
@@ -115,12 +117,6 @@
     <script>
         // Example data for the timeline
         const timelineData = {
-            title: {
-                text: {
-                    headline: "My Publications",
-                    text: "Explore the milestones of my research work."
-                }
-            },
             events: [
                 {
                     start_date: {
@@ -154,6 +150,10 @@
 
         // Initialize the TimelineJS instance
         window.timeline = new TL.Timeline('timeline-embed', timelineData);
+		window.addEventListener('resize', () => {
+            const viewportHeight = window.innerHeight;
+            timelineEmbed.style.height = viewportHeight * 0.6 + 'px'; // 60% of the viewport height
+        });
     </script>
 </body>
 </html>
