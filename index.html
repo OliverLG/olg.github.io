@@ -124,9 +124,11 @@
             innovation, I am eager to collaborate with like-minded individuals and companies 
             to make a meaningful impact.
         </p>
-		<p><a href="mailto: oliver.geissendoerfer@gmail.com"><img src="https://www.svgrepo.com/show/14478/email.svg" alt="Email svg" style="width: 24px; height: 24px; vertical-align: middle;"></a></p>
-		<p><a href="https://scholar.google.com/citations?user=ViVG5yEAAAAJ&hl=de"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a></p>
-        <p><a href="https://www.linkedin.com/in/oliver-geißendörfer"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a></p></a></p>
+		<div class="contact-links">
+			<a href="mailto: oliver.geissendoerfer@gmail.com"><img src="https://www.svgrepo.com/show/14478/email.svg" alt="Email Icon" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+			<a href="https://scholar.google.com/citations?user=ViVG5yEAAAAJ&hl=de"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+			<a href="https://www.linkedin.com/in/oliver-geißendörfer"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+		</div>
         <!--<p>
             Feel free to browse through my CV highlights, explore my research projects, and 
             dive into my interactive publication timeline.
@@ -163,17 +165,16 @@
         // Example data for the timeline
         const timelineData = {
             events: [
-                {
+				{
                     start_date: {
-                        year: "2023",
-						month: "04"
+                        year: "2025"
                     },
                     text: {
-                        headline: "Efficient In-Memory Point Cloud Query Processing",
-                        text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
+                        headline: "3D Point Cloud frequencies",
+                        text: "Details about your third publication. <a href='https://example.com'>Read more</a>."
                     }
                 },
-                {
+				{
                     start_date: {
                         year: "2024",
 						month: "08"
@@ -190,13 +191,16 @@
                 },
                 {
                     start_date: {
-                        year: "2025"
+                        year: "2023",
+						month: "04"
                     },
                     text: {
-                        headline: "3D Point Cloud frequencies",
-                        text: "Details about your third publication. <a href='https://example.com'>Read more</a>."
+                        headline: "Efficient In-Memory Point Cloud Query Processing",
+                        text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
                     }
-                }
+                },
+                
+                
             ]
         };
 		// Sort the events by date (newest first)
