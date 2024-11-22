@@ -55,11 +55,13 @@
             background-color: #004466;
             color: white;
         }
+		
 		.contact-links {
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
+			display: flex;                  /* Flexbox container */
+			justify-content: space-around;  /* Space between items */
+			align-items: center;            /* Vertical alignment of items */
 			margin-top: 20px;
+			gap: 20px;                      /* Consistent spacing between items */
 		}
 
 		.contact-item {
@@ -67,19 +69,22 @@
 			text-decoration: none;
 			color: #004466;
 			font-size: 1rem;
+			display: flex;                  /* Ensures alignment of logo and text */
+			flex-direction: column;         /* Stacks logo above text */
+			align-items: center;            /* Centers logo and text */
 		}
 
 		.contact-logo {
-			width: 50px;
+			width: 50px;                    /* Standard size for all logos */
 			height: 50px;
-			margin-bottom: 5px;
-			display: block;
+			margin-bottom: 5px;             /* Space between logo and label */
 		}
+
 		
 		@media (max-width: 600px) {
 			.contact-links {
 				flex-direction: column;
-				align-items: flex-start;
+				gap: 10px;
 			}
 		}
 
@@ -160,8 +165,8 @@
             events: [
                 {
                     start_date: {
-                        year: "2023"
-						month: "Feb"
+                        year: "2023",
+						month: "04"
                     },
                     text: {
                         headline: "Efficient In-Memory Point Cloud Query Processing",
@@ -170,7 +175,8 @@
                 },
                 {
                     start_date: {
-                        year: "2024"
+                        year: "2024",
+						month: "08"
                     },
                     text: {
                         headline: "Combining LiDAR and Time Domain Frequency Analysis for Enhanced Spatial Understanding of Vibration Responses",
@@ -193,9 +199,16 @@
                 }
             ]
         };
-
+		// Sort the events by date (newest first)
+		timelineData.events.sort((a, b) => {
+			const dateA = new Date(a.start_date.year, a.start_date.month - 1); // Month is 0-based
+			const dateB = new Date(b.start_date.year, b.start_date.month - 1);
+			return dateB - dateA; // Descending order
+		});
+	
         // Initialize the TimelineJS instance
         window.timeline = new TL.Timeline('timeline-embed', timelineData);
+		
 		window.addEventListener('resize', () => {
             const viewportHeight = window.innerHeight;
             timelineEmbed.style.height = viewportHeight * 0.6 + 'px'; // 60% of the viewport height
