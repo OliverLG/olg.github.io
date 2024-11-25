@@ -12,50 +12,80 @@
             width: 100%;
             overflow: hidden;
         }
+		
+		/* Ensure vertical alignment for all timeline events */
+		#timeline-embed .tl-timemarker {
+			display: block; /* Force each marker to display as a block */
+			margin-bottom: 30px; /* Add spacing between markers */
+			width: 100%; /* Use full width */
+		}
+
+		/* Adjust headline size for readability */
+		#timeline-embed .tl-headline {
+			font-size: 1.5rem;
+			font-weight: bold;
+			line-height: 1.4;
+			margin-bottom: 10px;
+		}
+
+		/* Ensure media displays properly below headlines */
+		#timeline-embed .tl-media img {
+			display: block;
+			margin: 10px auto;
+			max-width: 100%; /* Limit width for large screens */
+			height: auto; /* Maintain aspect ratio */
+		}
+
+		/* Navigation styling for vertical layout */
+		#timeline-embed .tl-timenav {
+			display: none; /* Hide horizontal navigation if not needed */
+		}
+
     </style>
 </head>
 <body>
     <div id="timeline-embed"></div>
     <script>
-        const timelineData = {
-            events: [
-                {
-                    start_date: { year: "2025" },
-                    text: { headline: "3D Point Cloud Frequencies", text: "Details about your publication." }
-                },
-                {
-                    start_date: { year: "2024", month: "08" },
-                    text: { headline: "LiDAR and Frequency Analysis", text: "Details about another publication." }
-                },
-                {
-                    start_date: { year: "2023", month: "04" },
-                    text: { headline: "Efficient Point Cloud Querying", text: "Details about your first publication." }
-                }
-            ]
-        };
+        // Example timeline data
+		const timelineData = {
+			events: [
+				{
+					start_date: { year: "2025" },
+					text: { headline: "3D Point Cloud Frequencies", text: "Details about your publication." }
+				},
+				{
+					start_date: { year: "2024", month: "08" },
+					text: { headline: "LiDAR and Frequency Analysis", text: "Details about another publication." }
+				},
+				{
+					start_date: { year: "2023", month: "04" },
+					text: { headline: "Efficient Point Cloud Querying", text: "Details about your first publication." }
+				}
+			]
+		};
 
-        timelineData.events.sort((a, b) => {
-            const dateA = new Date(
-                parseInt(a.start_date.year),
-                parseInt(a.start_date.month || 1) - 1
-            );
-            const dateB = new Date(
-                parseInt(b.start_date.year),
-                parseInt(b.start_date.month || 1) - 1
-            );
-            return dateB - dateA; // Newest first
-        });
+		// Sort events by date (newest first)
+		timelineData.events.sort((a, b) => {
+			const dateA = new Date(
+				parseInt(a.start_date.year),
+				parseInt(a.start_date.month || 1) - 1
+			);
+			const dateB = new Date(
+				parseInt(b.start_date.year),
+				parseInt(b.start_date.month || 1) - 1
+			);
+			return dateB - dateA; // Newest first
+		});
+		
+		console.log("Sorted Events:", timelineData.events);
 
-        window.timeline = new TL.Timeline('timeline-embed', timelineData, {
-            layout: "vertical",
-            timenav_position: "left",
-            css_class: "tl-vertical"
-        });
+		// Initialize TimelineJS with custom class
+		window.timeline = new TL.Timeline('timeline-embed', timelineData, {
+			layout: "vertical", // Suggest vertical layout
+			timenav_position: "left", // Navigation on the left
+			css_class: "custom-vertical" // Apply custom CSS class
+		});
 
-        window.addEventListener('resize', () => {
-            const timelineEmbed = document.getElementById('timeline-embed');
-            timelineEmbed.style.height = window.innerHeight + 'px';
-        });
     </script>
 </body>
 </html>
