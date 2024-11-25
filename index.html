@@ -274,10 +274,19 @@
 		
 		// Sort the events by date (newest first)
 		timelineData.events.sort((a, b) => {
-			const dateA = new Date(a.start_date.year, a.start_date.month - 1 || 0); // Month is 0-based
-			const dateB = new Date(b.start_date.year, b.start_date.month - 1 || 0);
-			return dateB - dateA; // Descending order
+			// Parse years and months into valid Date objects
+			const dateA = new Date(
+				parseInt(a.start_date.year), 
+				parseInt(a.start_date.month || 1) - 1 // Default to January if month is missing
+			);
+			const dateB = new Date(
+				parseInt(b.start_date.year), 
+				parseInt(b.start_date.month || 1) - 1
+			);
+
+			return dateB - dateA; // Sort in descending order
 		});
+
 	
         // Initialize the TimelineJS instance
         // Initialize the TimelineJS instance
