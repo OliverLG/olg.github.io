@@ -256,12 +256,11 @@
 			return dateB - dateA; // Sort in descending order
 		});
 
+		// Debug sorting results
+		console.log("Sorted Events:", timelineData.events);
 	
         // Initialize the TimelineJS instance
-        // Initialize the TimelineJS instance
 		window.timeline = new TL.Timeline('timeline-embed', timelineData, {
-			start_at_slide: 0, // Start at the first (newest) event
-			timenav_position: "left", // Ensure a vertical layout
 			layout: "vertical", // Explicitly specify vertical layout
 		});
 
