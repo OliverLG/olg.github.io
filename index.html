@@ -113,11 +113,12 @@
 			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 		}
 
-        <!--#timeline-embed {
+        #timeline-embed {
             width: 100%;
             height: 500px;
             margin: 0 auto;
-        }-->
+        }
+		
 		.timeline-container {
 		  max-width: 800px;
 		  margin: 0 auto;
@@ -310,11 +311,23 @@
 
     </script>
 	<style>
-	/* Adjust title font size */
-	.timeline .tl-headline {
-		font-size: 1.5rem; /* Adjust to your desired size */
-		font-weight: bold;
-		line-height: 1.4;
+	.tl-media img {
+		display: block;
+		margin: 10px auto; /* Center the image */
+		width: 100%; /* Use full width */
+		max-width: 800px; /* Optional: Limit maximum width for larger screens */
+		height: auto; /* Maintain aspect ratio */
+	}
+
+	.tl-media .media-credit, .tl-media .media-caption {
+		text-align: center; /* Center-align the caption and credit */
+		font-size: 0.9rem;
+		color: #666;
+		margin-top: 5px;
+	}
+
+	.tl-headline {
+		margin-bottom: 15px; /* Add space between headline and media */
 	}
 	</style>
 </body>
