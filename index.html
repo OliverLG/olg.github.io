@@ -116,6 +116,7 @@
         #timeline-embed {
 			height: 600px; /* Fixed height for proper rendering */
 			width: 100%;
+			overflow: hidden; /* Prevent any overflowing elements */
 		}
 
 		/* Make media display below the headline */
@@ -237,23 +238,23 @@
                         headline: "Efficient In-Memory Point Cloud Query Processing",
                         text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
                     }
-                },
+                }
             ]
         };
 		
-		// Sort the events by date (newest first)
+		// Validate and sort events by date (newest first)
 		timelineData.events.sort((a, b) => {
-			// Parse years and months into valid Date objects
 			const dateA = new Date(
-				parseInt(a.start_date.year), 
-				parseInt(a.start_date.month || 1) - 1 // Default to January if month is missing
+				parseInt(a.start_date.year),
+				parseInt(a.start_date.month || 1) - 1, // Default to January if month is missing
+				parseInt(a.start_date.day || 1) // Default to the first day if day is missing
 			);
 			const dateB = new Date(
-				parseInt(b.start_date.year), 
-				parseInt(b.start_date.month || 1) - 1
+				parseInt(b.start_date.year),
+				parseInt(b.start_date.month || 1) - 1,
+				parseInt(b.start_date.day || 1)
 			);
-
-			return dateB - dateA; // Sort in descending order
+			return dateB - dateA; // Newest first
 		});
 
 		// Debug sorting results
@@ -261,9 +262,9 @@
 	
         // Initialize the TimelineJS instance
 		window.timeline = new TL.Timeline('timeline-embed', timelineData, {
-			start_at_slide: 0, // Start at the first (newest) event
-			timenav_position: "left", // Ensure a vertical layout
 			layout: "vertical", // Explicitly specify vertical layout
+			timenav_position: "left", // Ensure a vertical layout
+			start_at_slide: 0, // Start at the first (newest) event
 		});
 
 		
@@ -272,6 +273,8 @@
 		
 		window.addEventListener('resize', () => {
 			window.timeline.updateDisplay();
+			const viewportHeight = window.innerHeight;
+			timelineEmbed.style.height = Math.max(400, viewportHeight * 0.6) + 'px'; // Minimum height of 400px
 		});
 
 		// Trigger resize on load to ensure correct initial size
