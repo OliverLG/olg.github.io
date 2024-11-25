@@ -246,16 +246,6 @@
                 },
 				{
                     start_date: {
-                        year: "2023",
-						month: "04"
-                    },
-                    text: {
-                        headline: "Efficient In-Memory Point Cloud Query Processing",
-                        text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
-                    }
-                },
-				{
-                    start_date: {
                         year: "2024",
 						month: "08"
                     },
@@ -269,7 +259,16 @@
                         credit: "Oliver Geißendörfer"
                     }
                 },
-				
+				{
+                    start_date: {
+                        year: "2023",
+						month: "04"
+                    },
+                    text: {
+                        headline: "Efficient In-Memory Point Cloud Query Processing",
+                        text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
+                    }
+                },
             ]
         };
 		
@@ -281,18 +280,33 @@
 		});
 	
         // Initialize the TimelineJS instance
-        window.timeline = new TL.Timeline('timeline-embed', timelineData, {
-			start_at_slide: 0 // Ensure it starts at the first (newest) event
+        // Initialize the TimelineJS instance
+		window.timeline = new TL.Timeline('timeline-embed', timelineData, {
+			start_at_slide: 0, // Start at the first (newest) event
+			timenav_position: "left", // Ensure a vertical layout
+			layout: "vertical", // Explicitly specify vertical layout
 		});
+
 		
 		// Adjust the height dynamically
 		const timelineEmbed = document.getElementById('timeline-embed');
 		
 		window.addEventListener('resize', () => {
-            const viewportHeight = window.innerHeight;
-            timelineEmbed.style.height = viewportHeight * 0.6 + 'px';
-        });
-		
+			const viewportHeight = window.innerHeight;
+			timelineEmbed.style.height = Math.max(400, viewportHeight * 0.6) + 'px'; // Minimum height of 400px
+		});
+
+		// Trigger resize on load to ensure correct initial size
+		window.dispatchEvent(new Event('resize'));
+
     </script>
+	<style>
+	/* Adjust title font size */
+	.timeline .tl-headline {
+		font-size: 1.5rem; /* Adjust to your desired size */
+		font-weight: bold;
+		line-height: 1.4;
+	}
+	</style>
 </body>
 </html>
