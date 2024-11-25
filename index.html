@@ -3,88 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timeline Test</title>
-    <link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
-    <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+    <title>Oliver Geißendörfer - personal webpage</title>
+	<link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
     <style>
-        #timeline-embed {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #004466;
+            color: white;
+        }
+        header img {
+            max-width: 150px;
+            border-radius: 50%;
+        }
+        header h1 {
+            margin: 10px 0;
+            font-size: 2.5rem;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #004466;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        section h2 {
+            margin-bottom: 20px;
+            color: #004466;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #004466;
+            color: white;
         }
 		
-		/* Ensure vertical alignment for all timeline events */
-		#timeline-embed .tl-timemarker {
-			display: block; /* Force each marker to display as a block */
-			margin-bottom: 30px; /* Add spacing between markers */
-			width: 100%; /* Use full width */
+		.about-container {
+			display: flex;                  /* Use flexbox for layout */
+			align-items: flex-start;        /* Align image and text to the top */
+			gap: 20px;                      /* Space between image and text */
 		}
 
-		/* Adjust headline size for readability */
-		#timeline-embed .tl-headline {
-			font-size: 1.5rem;
-			font-weight: bold;
-			line-height: 1.4;
-			margin-bottom: 10px;
+		.profile-image {
+			width: auto;                    /* Auto width to maintain aspect ratio */
+			height: 100%;                   /* Full height of the text container */
+			max-height: 300px;              /* Prevent image from becoming too tall */
+			object-fit: cover;              /* Ensure the image scales well */
+			float: right;                    /* Float the image to the left, right */
+			border-radius: 10px;            /* Optional: add rounded corners */
 		}
 
-		/* Ensure media displays properly below headlines */
-		#timeline-embed .tl-media img {
+		.about-text {
+			flex: 1;                        /* Allow the text to take up remaining space */
+		}
+
+		.contact-links {
+			display: flex;                  /* Flexbox container */
+			justify-content: space-around;  /* Space between items */
+			align-items: center;            /* Vertical alignment of items */
+			margin-top: 20px;
+			gap: 20px;                      /* Consistent spacing between items */
+		}
+
+		.contact-links a {
+			text-decoration: none;          /* Remove underline from links */
+			display: inline-block;          /* Ensure consistent sizing */
+		}
+
+		.contact-links img {
+			width: 50px;                    /* Standard size for all logos */
+			height: 50px;
+			transition: transform 0.2s;     /* Add a hover effect */
+		}
+
+		.contact-links img:hover {
+			transform: scale(1.1);          /* Slightly enlarge the icon on hover */
+		}
+		
+		@media (max-width: 600px) {
+			.contact-links {
+				flex-direction: column;
+				gap: 10px;
+			}
+		}
+
+		#about {
+			max-width: 900px;
+			margin: 20px auto;
+			padding: 20px;
+			background: white;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		}
+
+        #timeline-embed {
+			height: 600px; /* Fixed height for proper rendering */
+			width: 100%;
+			overflow: hidden; /* Prevent any overflowing elements */
+		}
+
+		/* Make media display below the headline */
+		.tl-media img {
 			display: block;
-			margin: 10px auto;
-			max-width: 100%; /* Limit width for large screens */
+			margin: 10px auto; /* Center the image */
+			width: 100%; /* Use full width */
+			max-width: 800px; /* Optional: Limit maximum width for larger screens */
 			height: auto; /* Maintain aspect ratio */
 		}
 
-		/* Navigation styling for vertical layout */
-		#timeline-embed .tl-timenav {
-			display: none; /* Hide horizontal navigation if not needed */
+		.tl-media .media-credit, .tl-media .media-caption {
+			text-align: center; /* Center-align the caption and credit */
+			font-size: 0.9rem;
+			color: #666;
+			margin-top: 5px;
 		}
 
+		.tl-headline {
+			margin-bottom: 15px; /* Add space between headline and media */
+			font-size: 1.5rem; /* Customize headline size */
+			font-weight: bold;
+		}
     </style>
 </head>
 <body>
-    <div id="timeline-embed"></div>
-    <script>
-        // Example timeline data
-		const timelineData = {
-			events: [
-				{
-					start_date: { year: "2025" },
-					text: { headline: "3D Point Cloud Frequencies", text: "Details about your publication." }
-				},
-				{
-					start_date: { year: "2024", month: "08" },
-					text: { headline: "LiDAR and Frequency Analysis", text: "Details about another publication." }
-				},
-				{
-					start_date: { year: "2023", month: "04" },
-					text: { headline: "Efficient Point Cloud Querying", text: "Details about your first publication." }
-				}
-			]
-		};
+    <header>
+        <img src="OG.svg" alt="Oliver Geißendörfer">
+        <h1>Oliver Geißendörfer</h1>
+        <p>Engineer | Researcher | Innovator | Collaborator</p>
+    </header>
+    <!--<nav>
+        <a href="#about">About</a>
+        <!{1}**<a href="#projects">Research Projects</a>**{1}>
+        <a href="#publications">My Publications</a>
+        <!{1}**<a href="#contact">Contact</a>**{1}>
+    </nav>-->
+    <section id="about">
+        <h2>About Me</h2>
+		<div class="about-container">
+			<img src="ProfileAI.png" alt="Profile Picture" class="profile-image">
+			<div class="about-text">
+				<p>
+					Welcome to my digital space! I am a Scientific Employee at Technical University of Munich, 
+					specializing in Point Cloud processing, segmentation and visualization. My work focuses on bridging the gap 
+					between academic research and environmental as well as industrial applications. With a commitment to driving 
+					innovation, I am eager to collaborate with like-minded individuals and companies 
+					to make a meaningful impact.
+				</p>
+				<div class="contact-links">
+					<a href="mailto: oliver.geissendoerfer@gmail.com"><img src="https://www.svgrepo.com/show/14478/email.svg" alt="Email Icon" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+					<a href="https://scholar.google.com/citations?user=ViVG5yEAAAAJ&hl=de"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+					<a href="https://www.linkedin.com/in/oliver-geißendörfer"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" alt="LinkedIn Logo" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+					<a href="CV"><img src="lebenslauf.png" alt="CV" style="width: 24px; height: 24px; vertical-align: middle;"></a>
+				</div>
+			</div>
+		</div>
+        <!--<p>
+            Feel free to browse through my CV highlights, explore my research projects, and 
+            dive into my interactive publication timeline.
+        </p>-->
+    </section>
+	<!--
+    <section id="projects">
+        <h2>Research Projects</h2>
+        <p>Here are some of the exciting research projects I've worked on:</p>
+        <ul>
+            <li>Project 1: PROVILAS</li>
+            <li>Project 2: Sustainability day</li>
+			<li>Project 3: Intuitive neighborhood search</li>
+            <li>Project 3: Hensoldt</li>
+        </ul>
+    </section>
+	//-->
+    <section id="publications">
+        <h2>Publications</h2>
+        <div id="timeline-embed"></div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Oliver Geißendörfer. All Rights Reserved.</p>
+    </footer>
 
-		// Sort events by date (newest first)
+    <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
+    <script>
+        // Example data for the timeline
+        const timelineData = {
+            events: [
+				{
+                    start_date: {
+                        year: "2025"
+                    },
+                    text: {
+                        headline: "3D Point Cloud frequencies",
+                        text: "Details about your third publication. <a href='https://example.com'>Read more</a>."
+                    }
+                },
+				{
+                    start_date: {
+                        year: "2024",
+						month: "08"
+                    },
+                    text: {
+                        headline: "Combining LiDAR and Time Domain Frequency Analysis for Enhanced Spatial Understanding of Vibration Responses",
+                        text: "Details about your second publication. <a href='https://ieeexplore.ieee.org/abstract/document/10648750'>Read more</a>."
+                    },
+					media: {
+                        url: "IEEE2024.png",
+                        caption: "Moving object monitored with profile laser scanning.",
+                        credit: "Oliver Geißendörfer"
+                    }
+                },
+				{
+                    start_date: {
+                        year: "2023",
+						month: "04"
+                    },
+                    text: {
+                        headline: "Efficient In-Memory Point Cloud Query Processing",
+                        text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
+                    }
+                }
+            ]
+        };
+		
+		// Validate and sort events by date (newest first)
 		timelineData.events.sort((a, b) => {
 			const dateA = new Date(
 				parseInt(a.start_date.year),
-				parseInt(a.start_date.month || 1) - 1
+				parseInt(a.start_date.month || 1) - 1, // Default to January if month is missing
+				parseInt(a.start_date.day || 1) // Default to the first day if day is missing
 			);
 			const dateB = new Date(
 				parseInt(b.start_date.year),
-				parseInt(b.start_date.month || 1) - 1
+				parseInt(b.start_date.month || 1) - 1,
+				parseInt(b.start_date.day || 1)
 			);
 			return dateB - dateA; // Newest first
 		});
-		
-		console.log("Sorted Events:", timelineData.events);
 
-		// Initialize TimelineJS with custom class
+		// Debug sorting results
+		console.log("Sorted Events:", timelineData.events);
+	
+        // Initialize the TimelineJS instance
 		window.timeline = new TL.Timeline('timeline-embed', timelineData, {
-			layout: "vertical", // Suggest vertical layout
-			timenav_position: "left", // Navigation on the left
-			css_class: "custom-vertical" // Apply custom CSS class
+			layout: "vertical", // Explicitly specify vertical layout
+			timenav_position: "left", // Ensure a vertical layout
+			start_at_slide: 0, // Start at the first (newest) event
 		});
+
+		
+		// Adjust the height dynamically
+		const timelineEmbed = document.getElementById('timeline-embed');
+		
+		window.addEventListener('resize', () => {
+			window.timeline.updateDisplay();
+			const viewportHeight = window.innerHeight;
+			timelineEmbed.style.height = Math.max(400, viewportHeight * 0.6) + 'px'; // Minimum height of 400px
+		});
+
+		// Trigger resize on load to ensure correct initial size
+		window.dispatchEvent(new Event('resize'));
 
     </script>
 </body>
