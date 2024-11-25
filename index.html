@@ -261,6 +261,8 @@
 	
         // Initialize the TimelineJS instance
 		window.timeline = new TL.Timeline('timeline-embed', timelineData, {
+			start_at_slide: 0, // Start at the first (newest) event
+			timenav_position: "left", // Ensure a vertical layout
 			layout: "vertical", // Explicitly specify vertical layout
 		});
 
@@ -269,8 +271,7 @@
 		const timelineEmbed = document.getElementById('timeline-embed');
 		
 		window.addEventListener('resize', () => {
-			const viewportHeight = window.innerHeight;
-			timelineEmbed.style.height = Math.max(400, viewportHeight * 0.6) + 'px'; // Minimum height of 400px
+			window.timeline.updateDisplay();
 		});
 
 		// Trigger resize on load to ensure correct initial size
