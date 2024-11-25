@@ -113,11 +113,64 @@
 			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 		}
 
-        #timeline-embed {
+        <!--#timeline-embed {
             width: 100%;
             height: 500px;
             margin: 0 auto;
-        }
+        }-->
+		.timeline-container {
+		  max-width: 800px;
+		  margin: 0 auto;
+		  position: relative;
+		  padding: 20px;
+		  border-left: 4px solid #0056b3;
+		}
+
+		.timeline-item {
+		  padding: 10px 20px;
+		  position: relative;
+		  margin-bottom: 20px;
+		}
+
+		.timeline-item h3 {
+		  margin: 0;
+		  font-size: 1.2rem;
+		  color: #0056b3;
+		}
+
+		.timeline-item p {
+		  margin: 5px 0 0;
+		  color: #666;
+		  font-size: 0.9rem;
+		}
+
+		.timeline-item::before {
+		  content: '';
+		  position: absolute;
+		  left: -10px;
+		  top: 10px;
+		  width: 16px;
+		  height: 16px;
+		  background: #0056b3;
+		  border-radius: 50%;
+		  border: 2px solid #fff;
+		}
+
+		/* Animations */
+		@keyframes fadeIn {
+		  from {
+			opacity: 0;
+			transform: translateY(20px);
+		  }
+		  to {
+			opacity: 1;
+			transform: translateY(0);
+		  }
+		}
+
+		.timeline-item {
+		  animation: fadeIn 0.5s ease-in-out;
+		}
     </style>
 </head>
 <body>
@@ -218,25 +271,28 @@
                 },
             ]
         };
-		// Sort the events by date (newest first)
-		timelineData.events.sort((a, b) => {
-			const dateA = new Date(a.start_date.year, a.start_date.month - 1 || 0); // Month is 0-based
-			const dateB = new Date(b.start_date.year, b.start_date.month - 1 || 0);
-			return dateB - dateA; // Descending order
-		});
-	
-        // Initialize the TimelineJS instance
-        window.timeline = new TL.Timeline('timeline-embed', timelineData, {
-			start_at_slide: 0 // Ensure it starts at the first (newest) event
-		});
 		
-		// Adjust the height dynamically
-		const timelineEmbed = document.getElementById('timeline-embed');
-		
-		window.addEventListener('resize', () => {
-            const viewportHeight = window.innerHeight;
-            timelineEmbed.style.height = viewportHeight * 0.2 + 'px'; // 60% of the viewport height
-        });
+		function renderTimeline() {
+		  const timelineContainer = document.getElementById("timeline-container");
+
+		  // Sort publications from newest to oldest
+		  publications.sort((a, b) => b.year - a.year);
+
+		  // Add publications to the timeline
+		  publications.forEach(pub => {
+			const timelineItem = document.createElement("div");
+			timelineItem.classList.add("timeline-item");
+
+			timelineItem.innerHTML = `
+			  <h3>${pub.year}</h3>
+			  <p><strong>${pub.title}</strong></p>
+			  <p>${pub.description}</p>
+			`;
+
+			timelineContainer.appendChild(timelineItem);
+		  });
+		}
+		renderTimeline();
     </script>
 </body>
 </html>
