@@ -202,84 +202,45 @@
 
     <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
     <script>
-        // Example data for the timeline
-        const timelineData = {
-            events: [
+        // Example timeline data
+		const timelineData = {
+			events: [
 				{
-                    start_date: {
-                        year: "2025"
-                    },
-                    text: {
-                        headline: "3D Point Cloud frequencies",
-                        text: "Details about your third publication. <a href='https://example.com'>Read more</a>."
-                    }
-                },
+					start_date: { year: "2025" },
+					text: { headline: "3D Point Cloud Frequencies", text: "Details about your publication." }
+				},
 				{
-                    start_date: {
-                        year: "2024",
-						month: "08"
-                    },
-                    text: {
-                        headline: "Combining LiDAR and Time Domain Frequency Analysis for Enhanced Spatial Understanding of Vibration Responses",
-                        text: "Details about your second publication. <a href='https://ieeexplore.ieee.org/abstract/document/10648750'>Read more</a>."
-                    },
-					media: {
-                        url: "IEEE2024.png",
-                        caption: "Moving object monitored with profile laser scanning.",
-                        credit: "Oliver Geißendörfer"
-                    }
-                },
+					start_date: { year: "2024", month: "08" },
+					text: { headline: "LiDAR and Frequency Analysis", text: "Details about another publication." }
+				},
 				{
-                    start_date: {
-                        year: "2023",
-						month: "04"
-                    },
-                    text: {
-                        headline: "Efficient In-Memory Point Cloud Query Processing",
-                        text: "Computing geometric features of Point Clouds highly efficiently. <a href='https://link.springer.com/chapter/10.1007/978-3-031-43699-4_16'>Read more</a>."
-                    }
-                }
-            ]
-        };
-		
-		// Validate and sort events by date (newest first)
+					start_date: { year: "2023", month: "04" },
+					text: { headline: "Efficient Point Cloud Querying", text: "Details about your first publication." }
+				}
+			]
+		};
+
+		// Sort events by date (newest first)
 		timelineData.events.sort((a, b) => {
 			const dateA = new Date(
 				parseInt(a.start_date.year),
-				parseInt(a.start_date.month || 1) - 1, // Default to January if month is missing
-				parseInt(a.start_date.day || 1) // Default to the first day if day is missing
+				parseInt(a.start_date.month || 1) - 1
 			);
 			const dateB = new Date(
 				parseInt(b.start_date.year),
-				parseInt(b.start_date.month || 1) - 1,
-				parseInt(b.start_date.day || 1)
+				parseInt(b.start_date.month || 1) - 1
 			);
 			return dateB - dateA; // Newest first
 		});
-
-		// Debug sorting results
+		
 		console.log("Sorted Events:", timelineData.events);
-	
-        // Initialize the TimelineJS instance
+
+		// Initialize TimelineJS with custom class
 		window.timeline = new TL.Timeline('timeline-embed', timelineData, {
-			layout: "vertical", // Explicitly specify vertical layout
-			timenav_position: "left", // Ensure a vertical layout
-			start_at_slide: 0, // Start at the first (newest) event
+			layout: "vertical", // Suggest vertical layout
+			timenav_position: "left", // Navigation on the left
+			css_class: "custom-vertical" // Apply custom CSS class
 		});
-
-		
-		// Adjust the height dynamically
-		const timelineEmbed = document.getElementById('timeline-embed');
-		
-		window.addEventListener('resize', () => {
-			window.timeline.updateDisplay();
-			const viewportHeight = window.innerHeight;
-			timelineEmbed.style.height = Math.max(400, viewportHeight * 0.6) + 'px'; // Minimum height of 400px
-		});
-
-		// Trigger resize on load to ensure correct initial size
-		window.dispatchEvent(new Event('resize'));
-
     </script>
 </body>
 </html>
