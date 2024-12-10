@@ -59,18 +59,24 @@
 
         /* About Section */
         .about-container {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
+			display: flex;                  /* Use Flexbox for layout */
+			gap: 20px;                      /* Space between image and text */
+			align-items: flex-start;        /* Align items to the top of the container */
+		}
 
-        .profile-image {
-            width: auto;
-            height: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
+		.about-text {
+			display: flex;                  /* Make the text container a flexbox */
+			flex-direction: column;         /* Arrange content vertically */
+			justify-content: space-between; /* Push .contact-links to the bottom */
+			flex: 1;                        /* Allow it to take up remaining space */
+		}
+
+		.profile-image {
+			width: auto;                    /* Maintain aspect ratio */
+			max-height: 300px;              /* Prevent image from growing too tall */
+			object-fit: cover;              /* Ensure image scales properly */
+			border-radius: 10px;            /* Optional: rounded corners */
+		}
 
         .about-text {
             flex: 1;
@@ -78,8 +84,8 @@
 
         .contact-links {
 			display: flex;                  /* Use flexbox for layout */
-			justify-content: space-between;  /* Evenly space logos across the width  commands -evenly, -between, -around*/
-			align-items: bottom;            /* Vertically align items */
+			justify-content: space-evenly;  /* Evenly space logos across the width  commands -evenly, -between, -around*/
+			align-items: center;            /* Vertically align items */
 			margin-top: 20px;
 			gap: 0;                         /* No extra gaps needed since space-evenly handles spacing */
 		}
@@ -91,7 +97,7 @@
 		}
 
 		.contact-links a img:hover {
-			transform: scale(1.1);          /* Slightly enlarge the icon on hover */
+			transform: scale(1.5);          /* Slightly enlarge the icon on hover */
 		}
 
 		@media (max-width: 600px) {
