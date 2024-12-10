@@ -79,7 +79,7 @@
         .contact-links {
 			display: flex;                  /* Use flexbox for layout */
 			justify-content: space-between;  /* Evenly space logos across the width  commands -evenly, -between, -around*/
-			align-items: center;            /* Vertically align items */
+			align-items: bottom;            /* Vertically align items */
 			margin-top: 20px;
 			gap: 0;                         /* No extra gaps needed since space-evenly handles spacing */
 		}
@@ -136,11 +136,15 @@
         }
 
         .timeline-item img {
-            width: 100%;
-            max-width: 100%;
-            margin: 10px 0;
-            border-radius: 5px;
-        }
+			display: block;                 /* Ensures proper layout */
+			max-width: 400px;               /* Maximum width for images */
+			max-height: 200px;              /* Maximum height for images */
+			width: auto;                    /* Maintain aspect ratio */
+			height: auto;                   /* Maintain aspect ratio */
+			margin: 10px auto;              /* Center the image */
+			border-radius: 5px;             /* Optional: rounded corners */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+		}
     </style>
 </head>
 <body>
