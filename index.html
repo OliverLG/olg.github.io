@@ -139,9 +139,10 @@
         }
 
         .timeline-item p {
-            margin: 0;
-            color: #666;
-        }
+			margin: 0;                        /* Remove default margins for better control */
+			color: #666;                      /* Subtle text color for descriptions */
+		}
+
 		.timeline-item .publication-details {
 			margin-top: 10px;                 /* Add space between description and details */
 		}
@@ -218,19 +219,22 @@
             {
                 year: "2025",
                 title: "3D Point Cloud Frequencies",
-                description: "Details about your third publication. <a href='https://example.com'>Read more</a>.",
+                description: "Details about your third publication."
+				link: "https://example.com",
                 image: null
             },
             {
                 year: "2024",
                 title: "Combining LiDAR and Time Domain Frequency Analysis",
-                description: "Details about your second publication. <a href='https://ieeexplore.ieee.org/abstract/document/10648750'>Read more</a>.",
+                description: "Details about your second publication."
+				link: "https://ieeexplore.ieee.org/abstract/document/10648750",
                 image: "IEEE2024.png"
             },
             {
 				year: "2023",
                 title: "Efficient In-Memory Point Cloud Query Processing",
-                description: "Details about your first publication. <a href='https://www.bgd.ed.tum.de/pdf/2023_pointcloudqueries_Teuscher.pdf'>Read more</a>.",
+                description: "Details about your first publication." 
+				link: "https://www.bgd.ed.tum.de/pdf/2023_pointcloudqueries_Teuscher.pdf",
                 image: null
             }
         ];
@@ -240,26 +244,44 @@
 
         // Render the timeline
         const timelineContainer = document.getElementById("timeline");
-        timelineData.forEach(event => {
-            const item = document.createElement("div");
-            item.classList.add("timeline-item");
+        
+		timelineData.forEach(event => {
+			const item = document.createElement("div");
+			item.classList.add("timeline-item");
 
-            const title = document.createElement("h3");
-            title.innerHTML = `${event.year}: ${event.title}`;
-            item.appendChild(title);
+			const title = document.createElement("h3");
+			title.innerText = event.title;
+			item.appendChild(title);
 
-            const description = document.createElement("p");
-            description.innerHTML = event.description;
-            item.appendChild(description);
+			const description = document.createElement("p");
+			description.innerText = event.description;
+			item.appendChild(description);
 
-            if (event.image) {
-                const image = document.createElement("img");
-                image.src = event.image;
-                item.appendChild(image);
-            }
+			const details = document.createElement("div");
+			details.classList.add("publication-details");
 
-            timelineContainer.appendChild(item);
-        });
+			const readMore = document.createElement("a");
+			readMore.href = event.link;
+			readMore.innerText = "Read more";
+			readMore.classList.add("read-more");
+			details.appendChild(readMore);
+
+			const year = document.createElement("span");
+			year.innerText = event.year;
+			year.classList.add("year");
+			details.appendChild(year);
+
+			item.appendChild(details);
+
+			if (event.image) {
+				const image = document.createElement("img");
+				image.src = event.image;
+				image.alt = `${event.title} Image`;
+				item.appendChild(image);
+			}
+
+			timelineContainer.appendChild(item);
+		});
     </script>
 </body>
 </html>
