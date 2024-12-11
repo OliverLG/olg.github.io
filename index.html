@@ -100,6 +100,65 @@
 			transform: scale(1.5);          /* Slightly enlarge the icon on hover */
 		}
 
+		#projects {
+			padding: 40px 20px;             /* Add spacing around the section */
+			background-color: #f9f9f9;      /* Light background for contrast */
+			text-align: center;
+		}
+
+		#projects h2 {
+			font-size: 2rem;                /* Section title size */
+			color: #004466;                 /* Match theme color */
+			margin-bottom: 20px;
+		}
+
+		.projects-container {
+			display: flex;                  /* Use Flexbox for layout */
+			gap: 20px;                      /* Space between project cards */
+			flex-wrap: wrap;                /* Allow wrapping on smaller screens */
+			justify-content: center;        /* Center align items */
+		}
+
+		.project-card {
+			background: white;              /* White background for cards */
+			padding: 20px;                  /* Inner padding for content */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+			border-radius: 10px;            /* Rounded corners */
+			max-width: 300px;               /* Limit card width */
+			text-align: left;               /* Align text to the left */
+			flex: 1 1 calc(33.333% - 20px); /* Responsive sizing (3 cards per row) */
+		}
+
+		.project-card h3 {
+			font-size: 1.25rem;             /* Card title size */
+			color: #004466;                 /* Match theme color */
+			margin-bottom: 10px;
+		}
+
+		.project-card p {
+			font-size: 1rem;                /* Standard text size */
+			color: #555;                    /* Subtle text color */
+			line-height: 1.6;               /* Improve readability */
+		}
+
+		.project-card .project-link {
+			display: inline-block;          /* Button-like link */
+			margin-top: 10px;               /* Space above the link */
+			font-weight: bold;
+			color: #004466;                 /* Match theme color */
+			text-decoration: none;          /* Remove underline */
+			border: 1px solid #004466;      /* Add border for button effect */
+			padding: 5px 10px;              /* Add padding for button feel */
+			border-radius: 5px;             /* Rounded corners */
+			transition: all 0.3s ease;      /* Smooth hover effect */
+		}
+
+		.project-card .project-link:hover {
+			background-color: #004466;      /* Hover background color */
+			color: white;                   /* Hover text color */
+		}
+
+
         /* Timeline */
         #timeline {
 			border-left: 3px solid #004466; /* Add vertical timeline line */
@@ -283,6 +342,34 @@
                 </div>
             </div>
         </section>
+		
+		<section id="projects">
+			<h2>Projects</h2>
+			<div class="projects-container">
+				<div class="project-card">
+					<h3>Project 1: LiDAR Spatial Mapping</h3>
+					<p>
+						Exploring innovative ways to map and analyze spatial data using LiDAR technology for enhanced environmental monitoring.
+					</p>
+					<a href="https://example.com" class="project-link">Learn More</a>
+				</div>
+				<div class="project-card">
+					<h3>Project 2: Point Cloud Data Processing</h3>
+					<p>
+						Developing real-time point cloud processing algorithms for high-efficiency geometric computations in industrial settings.
+					</p>
+					<a href="https://example.com" class="project-link">Learn More</a>
+				</div>
+				<div class="project-card">
+					<h3>Project 3: Vibration Analysis</h3>
+					<p>
+						Leveraging advanced frequency analysis techniques to study vibrations in structural systems and mechanical components.
+					</p>
+					<a href="https://example.com" class="project-link">Learn More</a>
+				</div>
+			</div>
+		</section>
+
         <section id="publications">
             <h2>Publications</h2>
             <div id="timeline"></div>
