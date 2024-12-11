@@ -111,6 +111,7 @@
 		
 		.timeline-item {
 			display: flex;                  /* Enable Flexbox for layout */
+			flex-wrap: wrap;                /* Allow content to wrap if needed */
 			align-items: flex-start;        /* Align items to the top */
 			margin-bottom: 20px;            /* Space between items */
 			position: relative;             /* Position required for ::before */
@@ -155,6 +156,11 @@
 			font-size: 0.9rem;                /* Smaller font size for the year */
 			color: #999;                      /* Subtle color for the year */
 		}
+		
+		.timeline-item .text-content {
+			flex: 1;                        /* Allow text to take remaining space */
+			padding-right: 20px;            /* Optional: Add padding between text and edge */
+		}
 
         .timeline-item img {
 			<!--display: block;                 /* Ensures proper layout */ -->
@@ -167,16 +173,20 @@
 			object-fit: cover;
 			border-radius: 5px;             /* Optional: rounded corners */
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+			order: 1;
 		}
 		
-		.timeline-item img:hover {
-			transform: scale(2.5);          /* Enlarge the image slightly on hover */
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
+		.timeline-item .abstract {
+			flex-basis: 100%;               /* Abstract spans the full width */
+			margin-top: 20px;               /* Space between image and abstract */
+			font-size: 0.95rem;             /* Slightly smaller font size for readability */
+			color: #555;                    /* Subtle text color */
+			line-height: 1.6;               /* Improve readability */
 		}
 
-		.timeline-item .text-content {
-			flex: 1;                        /* Allow text to take remaining space */
-			padding-right: 10px;            /* Optional: Add padding between text and edge */
+		.timeline-item img:hover {
+			transform: scale(1.5);          /* Enlarge the image slightly on hover */
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
 		}
 		
 		@media (max-width: 600px) {
@@ -273,6 +283,7 @@
 			const item = document.createElement("div");
 			item.classList.add("timeline-item");
 
+			// Text content (title, description, link)
 			const textContent = document.createElement("div");
 			textContent.classList.add("text-content");
 
@@ -301,12 +312,20 @@
 			textContent.appendChild(details);
 			item.appendChild(textContent);
 
+			// Image (if available)
 			if (event.image) {
 				const image = document.createElement("img");
 				image.src = event.image;
 				image.alt = `${event.title} Image`;
+				image.classList.add("publication-image");
 				item.appendChild(image);
 			}
+
+			// Abstract
+			const abstract = document.createElement("p");
+			abstract.classList.add("abstract");
+			abstract.innerText = event.description;
+			item.appendChild(abstract);
 
 			timelineContainer.appendChild(item);
 		});
