@@ -67,8 +67,9 @@
 		.about-text {
 			display: flex;                  /* Make the text container a flexbox */
 			flex-direction: column;         /* Arrange content vertically */
-			justify-content: felex-start; /* Push .contact-links to the bottom */
+			justify-content: felex-start; 	/* Push .contact-links to the bottom */
 			flex: 1;                        /* Allow it to take up remaining space */
+			padding: 10px;					/* Add some padding for readability */
 			position: relative;
 		}
 
@@ -77,6 +78,7 @@
 			max-height: 200px;              /* Prevent image from growing too tall */
 			object-fit: cover;              /* Ensure image scales properly */
 			border-radius: 10px;            /* Optional: rounded corners */
+			float: none;					/* Remove floating on small screens */
 		}
 
         .contact-links {
@@ -203,6 +205,23 @@
 		}
 		
 		@media (max-width: 600px) {
+			.about-container {
+				flex-direction: column;     /* Stack items vertically */
+				align-items: center;        /* Center-align content */
+				text-align: center;         /* Center text for better readability */
+			}
+
+			.profile-image {
+				max-width: 80%;             /* Scale image to fit within smaller screens */
+				max-height: none;           /* Remove height limit on small screens */
+				margin-bottom: 20px;        /* Space between image and text */
+			}
+
+			.about-text {
+				padding: 0;                 /* Remove extra padding on small screens */
+				text-align: justify;        /* Align text for straight edges */
+			}
+			
 			.contact-links {
 				flex-direction: column;     /* Stack icons vertically on small screens */
 				gap: 10px;                  /* Add spacing between items */
