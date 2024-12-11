@@ -149,6 +149,7 @@
 			line-height: 1.5rem;               /* Improve readability */
 			color: #004466;                 /* Title color */
 			display: inline;                /* Allow title to wrap around the image */
+			line-height: 1.6;               /* Match line height with the abstract text */
 		}
 
         .timeline-item p {
@@ -164,8 +165,14 @@
 			display: block;                   /* Ensure "Read more" appears on its own line */
 			margin-top: 5px;                  /* Add space above "Read more" */
 			font-weight: bold;                /* Emphasize the link */
+			color: #004466;                 /* Match theme color */
+			text-decoration: none;
 		}
-
+		
+		.timeline-item .read-more:hover {
+			text-decoration: underline;     /* Add underline on hover */
+		}
+		
 		.timeline-item .year {
 			display: block;                   /* Ensure year appears on a new line */
 			margin-top: 5px;                  /* Add space above the year */
@@ -181,6 +188,7 @@
         .timeline-item img {
 			float: right;                   /* Float the image to the right of the text */
 			margin-left: 50px;              /* Add spacing between the image and the text */
+			margin-top: 0;                  /* Ensure the image starts at the top */
 			margin-bottom: 10px;            /* Add spacing below the image */
 			width: auto;                    /* Maintain aspect ratio */
 			max-width: 300px;               /* Limit image width */
@@ -188,6 +196,7 @@
 			object-fit: cover;              /* Ensure proper scaling */
 			border-radius: 5px;             /* Optional: Rounded corners */
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+			vertical-align: top;            /* Align image with the top of the title */
 		}
 		
 		.timeline-item .abstract {
