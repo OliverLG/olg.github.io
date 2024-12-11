@@ -104,22 +104,19 @@
 			padding: 40px 20px;             /* Equal spacing around the section */
 			background-color: white;        /* Match the same background color */
 			text-align: left;               /* Align title and content to the left */
-			max-width: 900px;               /* Limit section width */
+			max-width: 900px;               /* Limit section width to match other sections */
 			margin: 20px auto;              /* Center the section on the page */
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 		}
 
 		#projects h2 {
-			font-size: 1.75rem;             /* Section title size */
+			font-size: 1.75rem;             /* Match the title size with other sections */
 			color: #004466;                 /* Match theme color */
 			margin-bottom: 20px;            /* Space below the title */
 		}
 
 		.projects-container {
-			display: flex;                  /* Use Flexbox for layout */
-			flex-direction: column; 		/* Stack projects vertically for full width */
-			flex-wrap: wrap;                /* Allow wrapping on smaller screens */
-			gap: 20px;                      /* Space between project cards */
+			display: block;                 /* Switch to block layout */
 		}
 
 		.project-card {
@@ -128,9 +125,8 @@
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 			border-radius: 10px;            /* Rounded corners for consistency */
 			font-size: 1rem;                /* Match font size to other sections */
-			width: 100%;
-			<!-- flex: 1 1 calc(50% - 20px);     /* Two cards per row on large screens */
-			max-width: calc(50% - 20px);    /* Ensure equal card width */ -->
+			width: 100%;                    /* Ensure cards stretch to full width of the container */
+			margin-bottom: 20px;            /* Space between cards */
 		}
 
 		.project-card h3 {
