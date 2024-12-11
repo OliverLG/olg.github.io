@@ -116,27 +116,29 @@
         }
 
         .timeline-item {
-            margin-bottom: 30px;
-            padding-left: 20px;
-            position: relative;
-        }
+			position: relative;             /* Ensure bullet point positioning */
+			margin-left: 20px;              /* Indent the content relative to the bullet */
+			padding-left: 10px;             /* Optional: Add spacing for readability */
+			border-left: 3px solid #004466; /* Timeline line */
+		}
 
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -9px;
-            width: 18px;
-            height: 18px;
-            background: #004466;
-            border-radius: 50%;
-        }
+		.timeline-item::before {
+			content: "";                    /* Create the bullet point */
+			position: absolute;
+			top: 0.5em;                     /* Align bullet point with the title */
+			left: -10px;                    /* Position bullet point to the left of the title */
+			width: 12px;                    /* Bullet point size */
+			height: 12px;
+			background-color: #004466;      /* Bullet point color */
+			border-radius: 50%;             /* Make it circular */
+		}
 
-        .timeline-item h3 {
-            font-size: 1.5rem;
-            color: #004466;
-            margin-bottom: 5px;
-        }
+		.timeline-item h3 {
+			margin: 0;                      /* Remove default margins to align with the bullet */
+			padding: 0;                     /* Ensure no padding disrupts alignment */
+			line-height: 1.5;               /* Optional: Improve text readability */
+			color: #004466;                 /* Title color */
+		}
 
         .timeline-item p {
 			margin: 0;                        /* Remove default margins for better control */
