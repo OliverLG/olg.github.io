@@ -102,18 +102,17 @@
 			transform: scale(1.5);          /* Slightly enlarge the icon on hover */
 		}
 
-		@media (max-width: 600px) {
-			.contact-links {
-				flex-direction: column;     /* Stack icons vertically on small screens */
-				gap: 10px;                  /* Add spacing between items */
-		}
-	}
-
         /* Timeline */
-        .timeline-item {
-			position: relative;             /* Ensure positioning for bullet points */
-			padding-left: 30px;             /* Add space to accommodate bullet points */
-			margin-bottom: 20px;            /* Space between timeline items */
+        #timeline {
+			border-left: 3px solid #004466; /* Add vertical timeline line */
+			padding-left: 20px;             /* Align content with the line */
+			position: relative;             /* Necessary for bullet positioning */
+		}
+		
+		.timeline-item {
+			display: flex;                  /* Enable Flexbox for layout */
+			align-items: flex-start;        /* Align items to the top */
+			margin-bottom: 20px;            /* Space between items */
 		}
 
 		.timeline-item::before {
@@ -125,12 +124,6 @@
 			height: 12px;
 			background-color: #004466;      /* Bullet color */
 			border-radius: 50%;             /* Make the bullet circular */
-		}
-
-		#timeline {
-			border-left: 3px solid #004466; /* Add vertical timeline line */
-			padding-left: 20px;             /* Align content with the line */
-			position: relative;             /* Necessary for bullet positioning */
 		}
 
 		.timeline-item h3 {
@@ -163,13 +156,35 @@
 
         .timeline-item img {
 			display: block;                 /* Ensures proper layout */
-			max-width: 400px;               /* Maximum width for images */
-			max-height: 200px;              /* Maximum height for images */
+			max-width: 200px;               /* Maximum width for images */
+			max-height: 150px;              /* Maximum height for images */
 			width: auto;                    /* Maintain aspect ratio */
 			height: auto;                   /* Maintain aspect ratio */
-			margin: 10px auto;              /* Center the image */
+			margin-left: 20px;              /* Center the image */
+			object-fit: cover;
 			border-radius: 5px;             /* Optional: rounded corners */
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+		}
+		
+		.timeline-item .text-content {
+			flex: 1;                        /* Allow text to take remaining space */
+			padding-right: 10px;            /* Optional: Add padding between text and edge */
+		}
+		
+		@media (max-width: 600px) {
+			.contact-links {
+				flex-direction: column;     /* Stack icons vertically on small screens */
+				gap: 10px;                  /* Add spacing between items */
+			}
+			.timeline-item {
+				flex-direction: column;    /* Stack items vertically */
+				align-items: center;      /* Center-align content */
+			}
+
+			.timeline-item img {
+				margin-left: 0;           /* Remove horizontal spacing */
+				margin-top: 10px;         /* Add vertical spacing */
+			}
 		}
     </style>
 </head>
@@ -250,13 +265,16 @@
 			const item = document.createElement("div");
 			item.classList.add("timeline-item");
 
+			const textContent = document.createElement("div");
+			textContent.classList.add("text-content");
+
 			const title = document.createElement("h3");
 			title.innerText = event.title;
-			item.appendChild(title);
+			textContent.appendChild(title);
 
 			const description = document.createElement("p");
 			description.innerText = event.description;
-			item.appendChild(description);
+			textContent.appendChild(description);
 
 			const details = document.createElement("div");
 			details.classList.add("publication-details");
@@ -272,7 +290,8 @@
 			year.classList.add("year");
 			details.appendChild(year);
 
-			item.appendChild(details);
+			textContent.appendChild(details);
+			item.appendChild(textContent);
 
 			if (event.image) {
 				const image = document.createElement("img");
