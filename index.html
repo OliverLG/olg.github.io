@@ -189,14 +189,16 @@
 			object-fit: cover;              /* Ensure proper scaling */
 			border-radius: 5px;             /* Optional: Rounded corners */
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-			order: 1;
 		}
 		
 		.timeline-item .abstract {
-			margin-top: 10px;               /* Space between abstract and preceding content */
+			hyphens: auto;                  /* Enable automatic word separation */
+			word-wrap: break-word;          /* Ensure long words break properly */
+			margin-top: 10px;               /* Add spacing above the abstract */
 			font-size: 0.95rem;             /* Slightly smaller font size for readability */
 			color: #555;                    /* Subtle text color */
 			line-height: 1.6;               /* Improve readability */
+			text-align: justify;            /* Align text to both sides for straight edges */
 		}
 
 		.timeline-item img:hover {
