@@ -110,33 +110,32 @@
 	}
 
         /* Timeline */
-        #timeline {
-            border-left: 3px solid #004466;
-            padding: 20px;
-        }
-
         .timeline-item {
-			position: relative;             /* Ensure bullet point positioning */
-			margin-left: 20px;              /* Indent the content relative to the bullet */
-			padding-left: 10px;             /* Optional: Add spacing for readability */
-			border-left: 3px solid #004466; /* Timeline line */
+			position: relative;             /* Ensure positioning for bullet points */
+			padding-left: 30px;             /* Add space to accommodate bullet points */
+			margin-bottom: 20px;            /* Space between timeline items */
 		}
 
 		.timeline-item::before {
 			content: "";                    /* Create the bullet point */
 			position: absolute;
-			top: 0.5em;                     /* Align bullet point with the title */
-			left: -10px;                    /* Position bullet point to the left of the title */
-			width: 12px;                    /* Bullet point size */
+			top: 0.5em;                     /* Align bullet vertically with title */
+			left: 0;                        /* Align bullet horizontally with the line */
+			width: 12px;                    /* Bullet size */
 			height: 12px;
-			background-color: #004466;      /* Bullet point color */
-			border-radius: 50%;             /* Make it circular */
+			background-color: #004466;      /* Bullet color */
+			border-radius: 50%;             /* Make the bullet circular */
+		}
+
+		#timeline {
+			border-left: 3px solid #004466; /* Add vertical timeline line */
+			padding-left: 20px;             /* Align content with the line */
+			position: relative;             /* Necessary for bullet positioning */
 		}
 
 		.timeline-item h3 {
 			margin: 0;                      /* Remove default margins to align with the bullet */
-			padding: 0;                     /* Ensure no padding disrupts alignment */
-			line-height: 1.5;               /* Optional: Improve text readability */
+			line-height: 1.5;               /* Improve readability */
 			color: #004466;                 /* Title color */
 		}
 
