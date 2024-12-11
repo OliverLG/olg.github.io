@@ -107,8 +107,26 @@
 			border-left: 3px solid #004466; /* Add vertical timeline line */
 			padding-left: 20px;             /* Align content with the line */
 			position: relative;             /* Necessary for bullet positioning */
+		    max-height: 500px;               /* Limit the height of the publications box */
+			overflow-y: auto;                /* Enable vertical scrolling */
+			padding-right: 10px;             /* Add some padding for the scrollbar */
+			margin-right: -10px;             /* Align content flush with the container */
+			box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
 		}
 		
+		#timeline::-webkit-scrollbar {
+			width: 8px;                      /* Customize scrollbar width */
+		}
+
+		#timeline::-webkit-scrollbar-thumb {
+			background-color: #ccc;          /* Customize scrollbar color */
+			border-radius: 4px;              /* Rounded scrollbar edges */
+		}
+
+		#timeline::-webkit-scrollbar-thumb:hover {
+			background-color: #999;          /* Darken scrollbar color on hover */
+		}
+
 		.timeline-item {
 			clear: both;                    /* Ensure each timeline item starts cleanly */
 			margin-bottom: 30px;            /* Space between timeline items */
