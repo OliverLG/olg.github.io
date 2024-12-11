@@ -159,8 +159,8 @@
         .timeline-item img {
 			<!--display: block;                 /* Ensures proper layout */ -->
 			width: auto;                    /* Maintain aspect ratio */
-			max-width: 200px;               /* Maximum width for images */
-			max-height: 150px;              /* Maximum height for images */
+			max-width: 400px;               /* Maximum width for images */
+			max-height: 200px;              /* Maximum height for images */
 			width: auto;                    /* Maintain aspect ratio */
 			height: auto;                   /* Maintain aspect ratio */
 			margin-left: 20px;              /* Center the image */
@@ -169,6 +169,11 @@
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
 		}
 		
+		.timeline-item img:hover {
+			transform: scale(2.5);          /* Enlarge the image slightly on hover */
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
+		}
+
 		.timeline-item .text-content {
 			flex: 1;                        /* Allow text to take remaining space */
 			padding-right: 10px;            /* Optional: Add padding between text and edge */
