@@ -101,43 +101,44 @@
 		}
 
 		#projects {
-			padding: 40px 20px;             /* Add spacing around the section */
-			background-color: #f9f9f9;      /* Light background for contrast */
-			text-align: center;
+			padding: 40px 20px;             /* Equal spacing around the section */
+			background-color: white;        /* Match the same background color */
+			text-align: left;               /* Align title and content to the left */
+			max-width: 900px;               /* Limit section width */
+			margin: 20px auto;              /* Center the section on the page */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 		}
 
 		#projects h2 {
 			font-size: 2rem;                /* Section title size */
 			color: #004466;                 /* Match theme color */
 			margin-bottom: 20px;            /* Space below the title */
-			text-align: left;               /* Align title to the left */
 		}
 
 		.projects-container {
 			display: flex;                  /* Use Flexbox for layout */
-			gap: 20px;                      /* Space between project cards */
 			flex-wrap: wrap;                /* Allow wrapping on smaller screens */
-			justify-content: center;        /* Center align items */
+			gap: 20px;                      /* Space between project cards */
 		}
 
 		.project-card {
-			background: white;              /* White background for cards */
+			background: white;              /* Match background color with other sections */
 			padding: 20px;                  /* Inner padding for content */
-			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-			border-radius: 10px;            /* Rounded corners */
-			max-width: 300px;               /* Limit card width */
-			text-align: left;               /* Align text to the left */
-			flex: 1 1 calc(33.333% - 20px); /* Responsive sizing (3 cards per row) */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+			border-radius: 10px;            /* Rounded corners for consistency */
+			flex: 1 1 calc(50% - 20px);     /* Two cards per row on large screens */
+			max-width: calc(50% - 20px);    /* Ensure equal card width */
+			font-size: 1rem;                /* Match font size to other sections */
 		}
 
 		.project-card h3 {
-			font-size: 1.25rem;             /* Card title size */
+			font-size: 1.25rem;             /* Adjust card title size */
 			color: #004466;                 /* Match theme color */
 			margin-bottom: 10px;
 		}
 
 		.project-card p {
-			font-size: 1rem;                /* Standard text size */
+			font-size: 1rem;                /* Match paragraph font size to other sections */
 			color: #555;                    /* Subtle text color */
 			line-height: 1.6;               /* Improve readability */
 		}
@@ -158,7 +159,6 @@
 			background-color: #004466;      /* Hover background color */
 			color: white;                   /* Hover text color */
 		}
-
 
         /* Timeline */
         #timeline {
@@ -296,7 +296,12 @@
 				justify-content: space-around; /* Ensure spacing remains proportional */
 				gap: 5px;                      /* Slightly reduce spacing between items */
 			}
-	
+			
+			.project-card {
+				flex: 1 1 100%;             /* Stack cards vertically on smaller screens */
+				max-width: 100%;
+			}
+
 			.timeline-item {
 				flex-direction: column;    /* Stack items vertically */
 				align-items: center;      /* Center-align content */
