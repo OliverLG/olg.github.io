@@ -128,7 +128,7 @@
 
 		.timeline-item h3 {
 			margin: 0;                      /* Remove default margins to align with the bullet */
-			line-height: 1.5;               /* Improve readability */
+			line-height: 1.5rem;               /* Improve readability */
 			color: #004466;                 /* Title color */
 		}
 
@@ -281,17 +281,18 @@
 			title.innerText = event.title;
 			item.appendChild(title);
 
-			const description = document.createElement("p");
-			description.innerText = event.description;
-			item.appendChild(description);
-
 			if (event.image) {
 				const image = document.createElement("img");
 				image.src = event.image;
 				image.alt = `${event.title} Image`;
 				image.classList.add("publication-image");
-				item.appendChild(image); // Add image immediately after the title
+				item.appendChild(image); // Place the image on the top-right
 			}
+
+			const abstract = document.createElement("p");
+			abstract.classList.add("abstract");
+			abstract.innerText = event.description; // Use description as the abstract
+			item.appendChild(abstract);
 
 			const details = document.createElement("div");
 			details.classList.add("publication-details");
@@ -309,14 +310,8 @@
 
 			item.appendChild(details);
 
-			const abstract = document.createElement("p");
-			abstract.classList.add("abstract");
-			abstract.innerText = event.description;
-			item.appendChild(abstract);
-
 			timelineContainer.appendChild(item);
 		});
-
     </script>
 </body>
 </html>
