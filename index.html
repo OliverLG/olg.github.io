@@ -113,6 +113,8 @@
 			display: flex;                  /* Enable Flexbox for layout */
 			align-items: flex-start;        /* Align items to the top */
 			margin-bottom: 20px;            /* Space between items */
+			position: relative;             /* Position required for ::before */
+			padding-left: 30px;             /* Ensure space for the bullet point */
 		}
 
 		.timeline-item::before {
@@ -155,7 +157,8 @@
 		}
 
         .timeline-item img {
-			display: block;                 /* Ensures proper layout */
+			<!--display: block;                 /* Ensures proper layout */ -->
+			width: auto;                    /* Maintain aspect ratio */
 			max-width: 200px;               /* Maximum width for images */
 			max-height: 150px;              /* Maximum height for images */
 			width: auto;                    /* Maintain aspect ratio */
