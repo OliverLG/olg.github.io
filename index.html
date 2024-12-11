@@ -116,7 +116,9 @@
 		}
 
 		.projects-container {
-			display: block;                 /* Switch to block layout */
+			display: flex;                 /* Switch to flex layout */
+			flex-direction: column; 	   /* Stack projects vertically */
+			gap: 20px;
 		}
 
 		.project-card {
@@ -125,7 +127,8 @@
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 			border-radius: 10px;            /* Rounded corners for consistency */
 			font-size: 1rem;                /* Match font size to other sections */
-			width: 100%;                    /* Ensure cards stretch to full width of the container */
+			width: calc(100% - 40px);       /* Ensure cards stretch to full width of the container */
+			margin: 0 auto; 				/* Center the cards */
 			margin-bottom: 20px;            /* Space between cards */
 		}
 
