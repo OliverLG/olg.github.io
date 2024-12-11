@@ -84,6 +84,7 @@
         .contact-links {
 			margin-top: auto;				/* Push the logos to the bottom of the container */
 			display: flex;                  /* Use flexbox for layout */
+			flex-wrap: nowrap;              /* Prevent stacking */
 			justify-content: space-between;  /* Evenly space logos across the width  commands -evenly, -between, -around*/
 			align-items: center;            /* Vertically align items */
 			padding-top: 50px;
@@ -223,9 +224,10 @@
 			}
 			
 			.contact-links {
-				flex-direction: column;     /* Stack icons vertically on small screens */
-				gap: 10px;                  /* Add spacing between items */
+				justify-content: space-around; /* Ensure spacing remains proportional */
+				gap: 5px;                      /* Slightly reduce spacing between items */
 			}
+	
 			.timeline-item {
 				flex-direction: column;    /* Stack items vertically */
 				align-items: center;      /* Center-align content */
