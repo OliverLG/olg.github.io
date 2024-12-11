@@ -130,7 +130,6 @@
 			margin-bottom: 30px;            /* Space between timeline items */
 			overflow: hidden;               /* Contain floated elements */
 			position: relative;
-			padding-left: 30px;
 		}
 
 		.timeline-item::before {
@@ -148,7 +147,7 @@
 			margin: 0;                      /* Remove default margins to align with the bullet */
 			line-height: 1.5rem;               /* Improve readability */
 			color: #004466;                 /* Title color */
-			display: inline;                /* Allow title to wrap around the image */
+			display: inline-block;                /* Allow title to wrap around the image */
 			vertical-align: top;            /* Align the title with the top of the image */
 			line-height: 1.6;               /* Match line height with the abstract text */
 		}
@@ -190,7 +189,6 @@
 			float: right;                   /* Float the image to the right of the text */
 			margin-left: 50px;              /* Add spacing between the image and the text */
 			margin-top: 0;                  /* Ensure the image starts at the top */
-			margin-bottom: 10px;            /* Add spacing below the image */
 			width: auto;                    /* Maintain aspect ratio */
 			max-width: 300px;               /* Limit image width */
 			max-height: 200px;              /* Limit image height */
@@ -208,6 +206,7 @@
 			color: #555;                    /* Subtle text color */
 			line-height: 1.6;               /* Improve readability */
 			text-align: justify;            /* Align text to both sides for straight edges */
+			clear: both;					/* Clear the float to start the abstract below the image */
 		}
 
 		.timeline-item img:hover {
