@@ -56,7 +56,15 @@
             background-color: #004466;
             color: white;
         }
-
+		#about h2,
+		#projects h2,
+		#publications h2 {
+			font-size: 1.5rem;             /* Match the title size with other sections */
+			color: #004466;                 /* Match theme color */
+			margin-bottom: 20px;            /* Space below the title */
+			margin-top: -20px;
+		}
+		
         /* About Section */
         .about-container {
 			display: flex;                  /* Use Flexbox for layout */
@@ -108,13 +116,6 @@
 			margin: 20px auto;              /* Center the section on the page */
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 			overflow: hidden;
-		}
-
-		#projects h2 {
-			font-size: 1.5rem;             /* Match the title size with other sections */
-			color: #004466;                 /* Match theme color */
-			margin-bottom: 20px;            /* Space below the title */
-			margin-top: -10px;
 		}
 
 		.projects-container {
